@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <script
+            src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous">
+
+    </script>
+    <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="menu">
+    <p><a href="javascript:void(0)" onclick=showPage('add')>Добавить фигуру</a></p>
+    <p><a href="javascript:void(0)" onclick=showPage('list')>Показать список</a></p>
+</div>
+
+<div id="formPage" hidden>
+    Выбирите тип фигуры
+
+    <label>
+        <select onchange="selectFigure(this.options[this.selectedIndex].value)">
+            <option value="0"></option>
+            <option value="circle">Круг</option>
+            <option value="parallelogram">Параллелограмм</option>
+            <option value="triangle">Треугольник</option>
+        </select>
+    </label>
+
+    <div id="circleForm" hidden>Форма 1
+        <form action="javascript:void(0)" onsubmit="submitForm(this)">
+            <input name="action" type="hidden" value="circleAdd">
+            <label>
+                <input name="center_x" type="text" placeholder="Центр_X">
+            </label>
+            <label>
+                <input name="center_y" type="text" placeholder="Центр_Y">
+            </label>
+            <label>
+                <input name="radius_x" type="text" placeholder="Радиус_X">
+            </label>
+            <label>
+                <input name="radius_y" type="text" placeholder="Радиус_Y">
+            </label>
+            <button type="submit">Отправить</button>
+        </form>
+
+    </div>
+    <div id="threeDotsBlock" hidden>
+        <form id="threeDotsForm" action="javascript:void(0)" onsubmit="submitForm(this)">
+            <input name="action" id="threeDotsType" type="hidden" value="">
+            <label>
+                <input name="dot1_x" type="text" placeholder="Точка X1">
+            </label>
+            <label>
+                <input name="dot1_y" type="text" placeholder="Точка Y1">
+            </label>
+            <label>
+                <input name="dot2_x" type="text" placeholder="Точка X2">
+            </label>
+            <label>
+                <input name="dot2_y" type="text" placeholder="Точка Y2">
+            </label>
+            <label>
+                <input name="dot3_x" type="text" placeholder="Точка X3">
+            </label>
+            <label>
+                <input name="dot3_y" type="text" placeholder="Точка Y3">
+            </label>
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+    <div id="resultMessage"></div>
+</div>
+
+<div id="listPage" hidden>
+    Список фигур
+<table>
+<thead>
+<tr>
+    <th>ID</th>
+    <th>Тип фигуры</th>
+    <th>Площадь фигуры</th>
+</tr>
+</thead>
+    <tbody id="listTable">
+
+    </tbody>
+</table>
+</div>
+
+</body>
+</html>
